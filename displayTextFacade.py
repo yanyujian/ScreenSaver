@@ -55,7 +55,9 @@ def nextItem():
     if cachedDisplayItems is None:
         initAllItems()
     if currentIndex >= len(cachedDisplayItems):
-        return None
+        from displayItem import DisplayItem
+        return DisplayItem(title="t没有更多的内容了"+str(currentIndex), summary="没有更多的内容了"+str(currentIndex),link="")
+        # return None
     result = cachedDisplayItems[currentIndex]
     print(result.title)
     return result

@@ -6,10 +6,14 @@
 import random
 import tkinter
 
+import timer
+
 import config
 import webbrowser
 import displayTextFacade
 import time
+
+import schedule
 
 
 class Bio(object):
@@ -126,7 +130,19 @@ class ScreenSaver:
         self.run_screen_saver()
         if restartSeconds > 0:
             self.root.after(restartSeconds * 1000, self.root.destroy)
+        schedule.every(1).seconds.do(self.appendNewBio, w, h)
+        self.runSchedule()
         self.root.mainloop()
+
+    def runSchedule(self):
+        schedule.run_pending()
+        self.root.after(1000,self.runSchedule)
+
+    def appendNewBio(self, w, h):
+        print('接到消息了阿拉啦啦啦')
+        bio = Bio(self.canvas, self.root, scrwidth=w, scrheight=h)
+        if bio.draw_Bio():
+            self.bios.append(bio)
 
     def run_screen_saver(self):
         self.bios = [x for x in self.bios if not x.hasDelete]  # 将已经展示到期的文本自动移除
