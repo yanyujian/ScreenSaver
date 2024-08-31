@@ -41,7 +41,7 @@ class Bio(object):
         self.scrheight = scrheight
 
         # 定义文字大小字体
-        self.fontsize = random.randint(25, 45)
+        self.fontsize = random.randint(20, 25)
         self.fonttype = '楷体'
 
     def remove_myself(self):
