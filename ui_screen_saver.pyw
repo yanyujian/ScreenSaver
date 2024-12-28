@@ -8,7 +8,7 @@ import tkinter
 
 import timer
 
-import config
+import displalyConfig
 import webbrowser
 import displayTextFacade
 import time
@@ -62,7 +62,7 @@ class Bio(object):
 
     def text_click(self, url):
         # 自我销毁，停止运行
-        if config.enableOpenLink:
+        if displalyConfig.enableOpenLink:
             webbrowser.open_new(url)
         self.root.destroy()
 
@@ -109,7 +109,7 @@ class ScreenSaver:
         self.root.configure(bg='black')
 
         ''' 鼠标键盘退出 '''
-        if config.enableExitByMouse:
+        if displalyConfig.enableExitByMouse:
             self.root.bind('<Motion>', self.myquit)
         self.root.bind('<Key>', self.myquit)
 
@@ -156,4 +156,4 @@ class ScreenSaver:
 
 
 if __name__ == '__main__':
-    ScreenSaver(displayTextFacade.getMaxDisplayItemsCount(), config.autoExitSeconds)
+    ScreenSaver(displayTextFacade.getMaxDisplayItemsCount(), displalyConfig.autoExitSeconds)

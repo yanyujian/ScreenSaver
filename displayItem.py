@@ -27,3 +27,6 @@ class DisplayItem:
         self.titleColor = titleColor
         self.summaryColor = summaryColor
         self.displaySeconds = displaySeconds
+
+    def __str__(self):
+        return "标题：" + self.title + " 摘要：" + self.summary + " 链接：" + self.link + " 标题颜色：" + self.titleColor + " 摘要颜色：" + self.summaryColor + " 展示时长：" + str(self.displaySeconds)

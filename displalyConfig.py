@@ -21,6 +21,7 @@ except Exception as e:
 
 from jueJinAINewsProvider import JueJinAINewsProvider
 from notificationProvider import NotificationProvider
+from aibotcnProvider import AIBotCnNewsProvider
 from rssProvider import RssProvider
 from weatherProvider import WeatherProvider
 
@@ -40,24 +41,11 @@ enabledTextProviders = [
                     titleColor='blue', summaryColor='blue', enableCache=True, cacheFileName="北京.pkl"),  # 北京天气预报
     NotificationProvider(notificationPath),
     # RssProvider("https://feed.cnblogs.com/blog/sitehome/rss", "cnblogs",enableCache=True,cacheFileName="cnblogs.pkl"),  # 博客园Rss
-    JueJinAINewsProvider(itemLimitation=30, enableCache=True, cacheFileName="juejin.pkl", itemDisplaySeconds=-5),
+    # JueJinAINewsProvider(itemLimitation=30, enableCache=True, cacheFileName="juejin.pkl", itemDisplaySeconds=-5),
+    AIBotCnNewsProvider()
+
 ]
 
 autoExitSeconds = -7200  # 自动退出时间
-
-cacheFolder = "d:/screen_saver_cache/"  # 缓存文件夹
-
-if not os.path.exists(cacheFolder):
-    os.makedirs(cacheFolder)
-
-
-def getCacheFilePath(fileName):
-    """
-    获取缓存文件路径
-    :param fileName:
-    :return:
-    """
-    return os.path.join(cacheFolder, fileName)
-
 
 displaySeconds = 10

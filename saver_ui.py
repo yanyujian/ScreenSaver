@@ -5,7 +5,7 @@
 '''
 import sys
 import tkinter as tk
-import config
+import displalyConfig
 from displayItem import DisplayItem
 from models.auto_text import AutoText
 
@@ -45,7 +45,7 @@ class ScreeSaverUI:
         绑定退出事件
         :return:
         """
-        if config.enableExitByMouse:
+        if displalyConfig.enableExitByMouse:
             self.window.bind("<Button-1>", self.quit)
         self.window.bind("<Key>", self.quit)
         self.window.bind("<Escape>", self.quit)

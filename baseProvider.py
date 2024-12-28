@@ -3,11 +3,15 @@
   * created at : 2023-11-22 21:28:39
   * description: 基础提取类
 '''
+import abc
 import logging
 import os.path
+from typing import List
 
-import config
+import cacheConfig
 import pickle
+
+from displayItem import DisplayItem
 
 
 class BaseProvider:
@@ -39,6 +43,7 @@ class BaseProvider:
         """
         return "green"
 
+    @abc.abstractmethod
     def name(self):
         """
         名称
@@ -46,6 +51,7 @@ class BaseProvider:
         """
         raise NotImplementedError("请实现该方法")
 
+    @abc.abstractmethod
     def downloadHtml(self):
         """
         下载html
@@ -53,7 +59,8 @@ class BaseProvider:
         """
         raise NotImplementedError("请实现该方法")
 
-    def extractDisplayItems(self, content):
+    @abc.abstractmethod
+    def extractDisplayItems(self, content) -> List[DisplayItem]:
         """
         提取展示的条目
         :return:
@@ -66,9 +73,9 @@ class BaseProvider:
         :return:
         """
         if self.cacheFileName is not None:
-            return config.getCacheFilePath(self.cacheFileName)
+            return cacheConfig.getCacheFilePath(self.cacheFileName)
         else:
-            return config.getCacheFilePath("cache_" + self.name() + ".pkl")
+            return cacheConfig.getCacheFilePath("cache_" + self.name() + ".pkl")
 
     def updateCache(self, results):
         """

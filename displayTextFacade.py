@@ -6,7 +6,7 @@
 import logging
 import random
 
-import config
+import displalyConfig
 
 cachedDisplayItems = None
 
@@ -68,4 +68,4 @@ def getMaxDisplayItemsCount():
     获取最大展示条数
     :return:
     """
-    return min(len(cachedDisplayItems), config.displayItems_max)
+    return min(len(cachedDisplayItems), displalyConfig.displayItems_max)
