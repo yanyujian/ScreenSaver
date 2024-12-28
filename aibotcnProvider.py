@@ -14,8 +14,8 @@ from displayItem import DisplayItem
 
 class AIBotCnNewsProvider(BaseProvider):
 
-    def __init__(self):
-        super().__init__()
+    def __init__(self,itemLimitation=30):
+        super().__init__(itemLimitation=itemLimitation)
         self.url = 'https://ai-bot.cn/daily-ai-news'
 
     def name(self):

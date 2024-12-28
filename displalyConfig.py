@@ -39,6 +39,8 @@ notificationPath = "d:/notification.txt"  # 通知的配置文件
 enabledTextProviders = [
     WeatherProvider("http://www.nmc.cn/publish/forecast/ABJ/beijing.html", itemLimitation=2, encoding='utf-8',
                     titleColor='blue', summaryColor='blue', enableCache=True, cacheFileName="北京.pkl"),  # 北京天气预报
+# WeatherProvider("http://www.nmc.cn/publish/forecast/ASN/xian.html", itemLimitation=2, encoding='utf-8',
+#                     titleColor='blue', summaryColor='blue', enableCache=True, cacheFileName="西安.pkl"), # 西安天气预报
     NotificationProvider(notificationPath),
     # RssProvider("https://feed.cnblogs.com/blog/sitehome/rss", "cnblogs",enableCache=True,cacheFileName="cnblogs.pkl"),  # 博客园Rss
     # JueJinAINewsProvider(itemLimitation=30, enableCache=True, cacheFileName="juejin.pkl", itemDisplaySeconds=-5),
