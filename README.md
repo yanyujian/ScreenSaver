@@ -16,6 +16,8 @@ A screen saver written by python for windows . 一个 用python写的屏幕保�
 
 ##### 2023.11.23 增加了展示Provider的功能。目前已经实现了掘金新闻和Rss（以博客园Rss为例，默认未开启）、本地提醒配置的Provider。在config.py中配置即可。
 
+##### 2024.12.28 掘金网站老是获取不到信息（另外看质量也不高，全是标题党），替换成另外一个https://ai-bot.cn/的，新闻质量还行。同时调整了config，这样每个provider可以单独写测试了（一个简单的例子在aibotcnProvider.py中）。
+
 ##### 注意：windows下通过管理员身份运行makescreen.bat文件，即可生成屏保程序，然后在屏保设置中选择该屏保程序即可。否则生成文件后无法复制到c:/windows目录中，需要自己手动复制并且修改exe后缀为scr。
 
 ###### 功能扩展2： 增加了notification.txt文件，用于显示通知信息，可以通过修改该文件来设置重要提醒，会在屏保中展示。注意：格式为英文逗号，具体参加文件说明。
