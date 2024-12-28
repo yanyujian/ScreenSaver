@@ -33,12 +33,12 @@ def initAllItems():
     if cachedDisplayItems is not None:
         return cachedDisplayItems
     cachedDisplayItems = []
-    for provider in config.enabledTextProviders:
+    for provider in displalyConfig.enabledTextProviders:
         results = safeFetch(provider)
         if results is None:
             continue
         cachedDisplayItems.extend(results)
-    if config.displayItems_choose_method == 2:  # 随机选择，否则按顺序排列
+    if displalyConfig.displayItems_choose_method == 2:  # 随机选择，否则按顺序排列
         random.shuffle(cachedDisplayItems)
     return cachedDisplayItems
 

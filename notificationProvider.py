@@ -4,6 +4,7 @@
   * description: 
 '''
 import datetime
+import traceback
 
 from notificationConfiguration import NotificationConfiguration
 from baseProvider import BaseProvider
@@ -78,7 +79,7 @@ class NotificationProvider(BaseProvider):
         try:
             return datetime.datetime.strptime(str, "%Y-%m-%d")
         except Exception as e:
-            print(str + "转时间失败", e)
+            print(str + "转时间失败", e, traceback.format_exc())
             return None
 
     def loadNotificationConfig(self, line):
